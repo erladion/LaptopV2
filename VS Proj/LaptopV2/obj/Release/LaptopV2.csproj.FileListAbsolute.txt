@@ -1,0 +1,8 @@
+D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\bin\Release\LaptopV2.exe
+D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\bin\Release\LaptopV2.pdb
+D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\obj\Release\LaptopV2.Form1.resources
+D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\obj\Release\LaptopV2.Properties.Resources.resources
+D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\obj\Release\LaptopV2.csproj.GenerateResource.Cache
+D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\obj\Release\LaptopV2.exe.licenses
+D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\obj\Release\LaptopV2.exe
+D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\obj\Release\LaptopV2.pdb

@@ -7,3 +7,12 @@ c:\users\johan\documents\visual studio 2012\Projects\LaptopV2\LaptopV2\obj\Debug
 c:\users\johan\documents\visual studio 2012\Projects\LaptopV2\LaptopV2\obj\Debug\LaptopV2.exe
 c:\users\johan\documents\visual studio 2012\Projects\LaptopV2\LaptopV2\obj\Debug\LaptopV2.pdb
 c:\users\johan\documents\visual studio 2012\Projects\LaptopV2\LaptopV2\obj\Debug\LaptopV2.exe.licenses
+D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\obj\Debug\LaptopV2.exe
+D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\obj\Debug\LaptopV2.pdb
+D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\bin\Debug\LaptopV2.exe
+D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\bin\Debug\LaptopV2.pdb
+D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\obj\Debug\LaptopV2.csprojResolveAssemblyReference.cache
+D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\obj\Debug\LaptopV2.Form1.resources
+D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\obj\Debug\LaptopV2.Properties.Resources.resources
+D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\obj\Debug\LaptopV2.csproj.GenerateResource.Cache
+D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\obj\Debug\LaptopV2.exe.licenses

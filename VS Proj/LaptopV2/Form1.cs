@@ -35,7 +35,7 @@ namespace LaptopV2
         const int minTurn = 1;
         const int maxTurn = 10;
         const int speedFreq = 1;
-        const int turnFreq = 1;
+        const int turnFreq = 1;        
 
         SerialPort bluetooth;
         List<Sensordata> dataList;
@@ -47,7 +47,7 @@ namespace LaptopV2
 
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();            
 
             dataList = new List<Sensordata>();
 
@@ -68,11 +68,11 @@ namespace LaptopV2
             leftBack.Text = "N/A";
             leftFront.Text = "N/A";
             rightBack.Text = "N/A";
-            rightFront.Text = "N/A";
+            rightFront.Text = "N/A";            
 
-            currentCommand.Text = Commands.None.ToString();
-            
-            progressBarControl1.PerformStep();
+            modeLabel.Text = "Autonomous";
+
+            currentCommand.Text = Commands.None.ToString();                       
         }              
 
         private bool connect()
@@ -84,9 +84,12 @@ namespace LaptopV2
                 try
                 {
                     bluetooth.Open();
-                    connectedLabel.Text = "Connected";
+                    connected = true;
+                    connectedLabel.Text = "Connected";                   
+                    progressBarControl1.Position = 0;
+                    
                     return true;
-                }
+                }                    
                 catch (IOException)
                 {
                     bluetooth = null;
@@ -94,6 +97,10 @@ namespace LaptopV2
                 }
                 progressBarControl1.PerformStep();
                 progressBarControl1.Update();
+                if (progressBarControl1.Position == 100)
+                {
+                    progressBarControl1.Position = 0;
+                }                
             }
             connectedLabel.Text = "Disconnected";
             return false;
@@ -145,8 +152,29 @@ namespace LaptopV2
             }
         }
 
-        byte reverseByte(byte originalByte)
+        string GetIntBinaryString(int n)
         {
+            char[] result = new char[11];
+            int pos = 10;
+            int i = 0;
+
+            while (i < 11)
+            {
+                if ((n & (1 << i)) != 0)
+                {
+                    result[pos] = '1';
+                }
+                else
+                {
+                    result[pos] = '0';
+                }
+                pos--;
+                i++;
+            }
+            return new string(result);
+        }
+
+        byte reverseByte(byte originalByte){
             int result = 0;
             for (int i = 0; i < 8; i++)
             {
@@ -219,6 +247,19 @@ namespace LaptopV2
 
         void updateLabels()
         {
+            if (dataList[0].manualMode == true)
+            {
+                modeLabel.Text = "Manual";
+                currentCommandLabel.Show();
+                currentCommand.Show();
+            }
+            else
+            {
+                modeLabel.Text = "Autonomous";
+                currentCommandLabel.Hide();
+                currentCommand.Hide();
+            }
+
             front.Text = dataList[0].sensorFront.ToString();
             back.Text = dataList[0].sensorBack.ToString();
             leftBack.Text = dataList[0].sensorFrontLeft.ToString();
@@ -256,9 +297,45 @@ namespace LaptopV2
             }            
         }
 
-        private void disconnectButton_Click(object sender, EventArgs e)
+        void drawReflexsensor()
         {
-            disconnect();
+            int size = 15;
+            int startLocationX = 135;
+            int startLocationY = 150;
+            int labelLocationX = startLocationX + 1;
+            int labelLocationY = 135;
+
+            reflexSensor.Show();
+            reflexSensor.Location = new Point(labelLocationX, labelLocationY);
+
+            Graphics g = this.CreateGraphics();
+
+            string reflexmoduleDraw;
+
+            if (dataList.Count != 0)
+            {
+                reflexmoduleDraw = GetIntBinaryString(dataList[0].reflexmodule);
+            }
+            else
+            {
+                reflexmoduleDraw = GetIntBinaryString(0);
+            }            
+
+            for (int i = 0; i < 11; i++)
+            {
+                if(reflexmoduleDraw[i] == '1'){
+                    g.FillEllipse(new SolidBrush(Color.Red), startLocationX + size * i, startLocationY, size, size);
+                }
+                else
+                {
+                    g.FillEllipse(new SolidBrush(Color.Black), startLocationX + size * i, startLocationY, size, size);
+                }
+            }
+        }
+
+        private void disconnectButton_Click(object sender, EventArgs e)
+        {            
+            disconnect();                  
         }
 
         private void connectButton_Click(object sender, EventArgs e)
@@ -271,6 +348,8 @@ namespace LaptopV2
         {
             CheckKeys();
             readBluetooth();
+
+            drawReflexsensor();
 
             updateGraphs();
             if (dataList.Count != 0)

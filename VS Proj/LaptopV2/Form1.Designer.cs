@@ -76,6 +76,9 @@
             this.back = new DevExpress.XtraEditors.LabelControl();
             this.currentCommandLabel = new DevExpress.XtraEditors.LabelControl();
             this.currentCommand = new DevExpress.XtraEditors.LabelControl();
+            this.modeLabel = new DevExpress.XtraEditors.LabelControl();
+            this.currentModeLabel = new DevExpress.XtraEditors.LabelControl();
+            this.reflexSensor = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.comBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.speedBar)).BeginInit();
@@ -375,7 +378,7 @@
             // 
             // currentCommandLabel
             // 
-            this.currentCommandLabel.Location = new System.Drawing.Point(220, 15);
+            this.currentCommandLabel.Location = new System.Drawing.Point(220, 49);
             this.currentCommandLabel.Name = "currentCommandLabel";
             this.currentCommandLabel.Size = new System.Drawing.Size(89, 13);
             this.currentCommandLabel.TabIndex = 28;
@@ -383,17 +386,44 @@
             // 
             // currentCommand
             // 
-            this.currentCommand.Location = new System.Drawing.Point(220, 34);
+            this.currentCommand.Location = new System.Drawing.Point(220, 68);
             this.currentCommand.Name = "currentCommand";
             this.currentCommand.Size = new System.Drawing.Size(82, 13);
             this.currentCommand.TabIndex = 29;
             this.currentCommand.Text = "currentCommand";
+            // 
+            // modeLabel
+            // 
+            this.modeLabel.Location = new System.Drawing.Point(220, 30);
+            this.modeLabel.Name = "modeLabel";
+            this.modeLabel.Size = new System.Drawing.Size(26, 13);
+            this.modeLabel.TabIndex = 30;
+            this.modeLabel.Text = "mode";
+            // 
+            // currentModeLabel
+            // 
+            this.currentModeLabel.Location = new System.Drawing.Point(220, 15);
+            this.currentModeLabel.Name = "currentModeLabel";
+            this.currentModeLabel.Size = new System.Drawing.Size(70, 13);
+            this.currentModeLabel.TabIndex = 31;
+            this.currentModeLabel.Text = "Current mode:";
+            // 
+            // reflexSensor
+            // 
+            this.reflexSensor.Location = new System.Drawing.Point(127, 134);
+            this.reflexSensor.Name = "reflexSensor";
+            this.reflexSensor.Size = new System.Drawing.Size(67, 13);
+            this.reflexSensor.TabIndex = 32;
+            this.reflexSensor.Text = "Reflexsensor:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(943, 561);
+            this.Controls.Add(this.reflexSensor);
+            this.Controls.Add(this.currentModeLabel);
+            this.Controls.Add(this.modeLabel);
             this.Controls.Add(this.currentCommand);
             this.Controls.Add(this.currentCommandLabel);
             this.Controls.Add(this.back);
@@ -489,6 +519,9 @@
         private DevExpress.XtraEditors.LabelControl back;
         private DevExpress.XtraEditors.LabelControl currentCommandLabel;
         private DevExpress.XtraEditors.LabelControl currentCommand;
+        private DevExpress.XtraEditors.LabelControl modeLabel;
+        private DevExpress.XtraEditors.LabelControl currentModeLabel;
+        private DevExpress.XtraEditors.LabelControl reflexSensor;
 
     }
 }
