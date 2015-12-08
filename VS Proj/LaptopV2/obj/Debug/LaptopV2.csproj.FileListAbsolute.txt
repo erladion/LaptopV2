@@ -1,0 +1,9 @@
+c:\users\johan\documents\visual studio 2012\Projects\LaptopV2\LaptopV2\bin\Debug\LaptopV2.exe
+c:\users\johan\documents\visual studio 2012\Projects\LaptopV2\LaptopV2\bin\Debug\LaptopV2.pdb
+c:\users\johan\documents\visual studio 2012\Projects\LaptopV2\LaptopV2\obj\Debug\LaptopV2.csprojResolveAssemblyReference.cache
+c:\users\johan\documents\visual studio 2012\Projects\LaptopV2\LaptopV2\obj\Debug\LaptopV2.Form1.resources
+c:\users\johan\documents\visual studio 2012\Projects\LaptopV2\LaptopV2\obj\Debug\LaptopV2.Properties.Resources.resources
+c:\users\johan\documents\visual studio 2012\Projects\LaptopV2\LaptopV2\obj\Debug\LaptopV2.csproj.GenerateResource.Cache
+c:\users\johan\documents\visual studio 2012\Projects\LaptopV2\LaptopV2\obj\Debug\LaptopV2.exe
+c:\users\johan\documents\visual studio 2012\Projects\LaptopV2\LaptopV2\obj\Debug\LaptopV2.pdb
+c:\users\johan\documents\visual studio 2012\Projects\LaptopV2\LaptopV2\obj\Debug\LaptopV2.exe.licenses
