@@ -6,3 +6,4 @@ D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\obj\Release\LaptopV2.csproj.Gene
 D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\obj\Release\LaptopV2.exe.licenses
 D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\obj\Release\LaptopV2.exe
 D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\obj\Release\LaptopV2.pdb
+D:\Development\GitHub\LaptopV2\VS Proj\LaptopV2\obj\Release\LaptopV2.csprojResolveAssemblyReference.cache

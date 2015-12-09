@@ -12,7 +12,6 @@ using System.IO;
 using System.IO.Ports;
 using DevExpress.XtraEditors.Controls;
 
-
 namespace LaptopV2
 {
     enum Commands
@@ -72,6 +71,12 @@ namespace LaptopV2
 
             modeLabel.Text = "Autonomous";
 
+            if (modeLabel.Text == "Autonomous")
+            {
+                currentCommandLabel.Hide();
+                currentCommand.Hide();
+            }
+
             currentCommand.Text = Commands.None.ToString();                       
         }              
 
@@ -81,6 +86,12 @@ namespace LaptopV2
                      
             while (bluetooth.IsOpen != true)
             {
+                progressBarControl1.PerformStep();
+                progressBarControl1.Update();
+                if (progressBarControl1.Position == 100)
+                {
+                    progressBarControl1.Position = 0;
+                }    
                 try
                 {
                     bluetooth.Open();
@@ -94,13 +105,7 @@ namespace LaptopV2
                 {
                     bluetooth = null;
                     throw;
-                }
-                progressBarControl1.PerformStep();
-                progressBarControl1.Update();
-                if (progressBarControl1.Position == 100)
-                {
-                    progressBarControl1.Position = 0;
-                }                
+                }                            
             }
             connectedLabel.Text = "Disconnected";
             return false;
@@ -152,6 +157,25 @@ namespace LaptopV2
             }
         }
 
+        void checkIfListFull()
+        {
+            if (dataList.Count > 10)
+            {
+                for (int i = 0; i < dataList.Count; i++)
+                {
+                    if (i >= 10)
+                    {
+                        dataList.RemoveAt(10);
+                    }
+                }
+            }
+        }
+
+
+        /*
+         * Converts a number to a binary number represented in a string
+         * 
+         */
         string GetIntBinaryString(int n)
         {
             char[] result = new char[11];
@@ -348,14 +372,15 @@ namespace LaptopV2
         {
             CheckKeys();
             readBluetooth();
+            checkIfListFull();
 
             drawReflexsensor();
-
-            updateGraphs();
+            
             if (dataList.Count != 0)
             {
+                updateGraphs();
                 updateLabels();
             }
-        }                    
+        }                                 
     }
 }
