@@ -23,17 +23,17 @@ namespace LaptopV2
 
         public Sensordata(string data)
         {
-            startButton = (data[0] & (1 << 6)) != 0;
-            manualMode = (data[0] & (1 << 5)) != 0;
+            startButton = (data[2] & (1 << 6)) != 0;
+            manualMode = (data[2] & (1 << 5)) != 0;
 
-            reflexmodule = (data[1] << 8) + data[2];
-            gyro = (data[3] << 8) + data[4];
-            sensorFront = (data[5] << 8) + data[6];
-            sensorBack = (data[7] << 8) + data[8];
-            sensorFrontRight = data[9];
-            sensorBackRight = data[10];
-            sensorFrontLeft = data[11];
-            sensorBackLeft = data[12];
+            reflexmodule = (data[3] << 8) + data[4];
+            gyro = (data[5] << 8) + data[6];
+            sensorFront = (data[7] << 8) + data[8];
+            sensorBack = (data[9] << 8) + data[10];
+            sensorFrontRight = data[11];
+            sensorBackRight = data[12];
+            sensorFrontLeft = data[13];
+            sensorBackLeft = data[14];
         }
     }
 }

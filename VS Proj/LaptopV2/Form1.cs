@@ -34,21 +34,34 @@ namespace LaptopV2
         const int minTurn = 1;
         const int maxTurn = 10;
         const int speedFreq = 1;
-        const int turnFreq = 1;        
+        const int turnFreq = 1;
 
         SerialPort bluetooth;
         List<Sensordata> dataList;
 
         public Random rand = new Random();
 
+        DevExpress.XtraCharts.SeriesPoint frontLeft;
+        DevExpress.XtraCharts.SeriesPoint frontRight;
+        DevExpress.XtraCharts.SeriesPoint backLeft;
+        DevExpress.XtraCharts.SeriesPoint backRight;
+        DevExpress.XtraCharts.SeriesPoint frontSensor;
+        DevExpress.XtraCharts.SeriesPoint backSensor;
+
+        Graphics g;
+
+        bool useBuffer = true;
+
         string comPort;
         bool connected = false;
 
         public Form1()
         {
-            InitializeComponent();            
+            InitializeComponent();
 
             dataList = new List<Sensordata>();
+
+            g = this.CreateGraphics();
 
             speedBar.Properties.Maximum = maxSpeed;
             speedBar.Properties.Minimum = minSpeed;
@@ -67,7 +80,7 @@ namespace LaptopV2
             leftBack.Text = "N/A";
             leftFront.Text = "N/A";
             rightBack.Text = "N/A";
-            rightFront.Text = "N/A";            
+            rightFront.Text = "N/A";
 
             modeLabel.Text = "Autonomous";
 
@@ -77,35 +90,37 @@ namespace LaptopV2
                 currentCommand.Hide();
             }
 
-            currentCommand.Text = Commands.None.ToString();                       
-        }              
+            currentCommand.Text = Commands.None.ToString();
+        }
 
         private bool connect()
         {
             bluetooth = new SerialPort(comPort, 115200, Parity.None, 8, StopBits.One);
-                     
+
             while (bluetooth.IsOpen != true)
             {
-                progressBarControl1.PerformStep();
-                progressBarControl1.Update();
-                if (progressBarControl1.Position == 100)
-                {
-                    progressBarControl1.Position = 0;
-                }    
+                
                 try
                 {
                     bluetooth.Open();
                     connected = true;
-                    connectedLabel.Text = "Connected";                   
+                    connectedLabel.Text = "Connected";
                     progressBarControl1.Position = 0;
-                    
+
                     return true;
-                }                    
+                }
                 catch (IOException)
                 {
                     bluetooth = null;
                     throw;
-                }                            
+                }
+            }
+
+            progressBarControl1.PerformStep();
+            progressBarControl1.Update();
+            if (progressBarControl1.Position == 100)
+            {
+                progressBarControl1.Position = 0;
             }
             connectedLabel.Text = "Disconnected";
             return false;
@@ -129,7 +144,7 @@ namespace LaptopV2
         private void sendBluetooth()
         {
             if (bluetooth != null && bluetooth.IsOpen)
-            {                
+            {
                 bluetooth.Write(((int)command).ToString() + (speedBar.Value - 1) + (turnBar.Value - 1));
             }
         }
@@ -138,9 +153,13 @@ namespace LaptopV2
         {
             if (bluetooth != null && bluetooth.IsOpen)
             {
+                if (!useBuffer)
+                {
+                    bluetooth.DiscardInBuffer();
+                }
                 int bytes = bluetooth.BytesToRead;
                 if (bytes > 0)
-                {                    
+                {
                     bluetooth.ReadTimeout = 200;
                     try
                     {
@@ -151,7 +170,7 @@ namespace LaptopV2
                             dataList.Insert(0, sensor);
                         }
                     }
-                    catch (Exception e) { }                    
+                    catch (Exception e) { }
 
                 }
             }
@@ -198,7 +217,8 @@ namespace LaptopV2
             return new string(result);
         }
 
-        byte reverseByte(byte originalByte){
+        byte reverseByte(byte originalByte)
+        {
             int result = 0;
             for (int i = 0; i < 8; i++)
             {
@@ -221,7 +241,7 @@ namespace LaptopV2
             {
                 //readBluetooth();                
                 if (Keyboard.IsKeyDown(Key.Left) && Keyboard.IsKeyDown(Key.Right))
-                    command = Commands.Forwards;                
+                    command = Commands.Forwards;
                 else if (Keyboard.IsKeyDown(Key.Left))
                     command = Commands.LeftTurn;
                 else if (Keyboard.IsKeyDown(Key.Right))
@@ -261,7 +281,6 @@ namespace LaptopV2
 
         void changeCommand(Commands newCommand)
         {
-
             if (newCommand != command)
             {
                 command = newCommand;
@@ -292,23 +311,26 @@ namespace LaptopV2
             rightFront.Text = dataList[0].sensorBackRight.ToString();
         }
 
+        void clearGraphs()
+        {
+            sensorsLeftGraph.Series[0].Points.Clear();
+            sensorsLeftGraph.Series[1].Points.Clear();
+            sensorsRightGraph.Series[0].Points.Clear();
+            sensorsRightGraph.Series[1].Points.Clear();
+            sensorsFrontBackGraph.Series[0].Points.Clear();
+            sensorsFrontBackGraph.Series[1].Points.Clear();
+        }
+
         void updateGraphs()
         {
-            DevExpress.XtraCharts.SeriesPoint frontLeft;
-            DevExpress.XtraCharts.SeriesPoint frontRight;
-            DevExpress.XtraCharts.SeriesPoint backLeft;
-            DevExpress.XtraCharts.SeriesPoint backRight;
-            DevExpress.XtraCharts.SeriesPoint front;
-            DevExpress.XtraCharts.SeriesPoint back;
-
             for (int i = 0; i < dataList.Count; i++)
             {
                 frontLeft = new DevExpress.XtraCharts.SeriesPoint(i, new double[] { dataList[i].sensorFrontLeft });
                 frontRight = new DevExpress.XtraCharts.SeriesPoint(i, new double[] { dataList[i].sensorFrontRight });
                 backLeft = new DevExpress.XtraCharts.SeriesPoint(i, new double[] { dataList[i].sensorBackLeft });
                 backRight = new DevExpress.XtraCharts.SeriesPoint(i, new double[] { dataList[i].sensorBackRight });
-                front = new DevExpress.XtraCharts.SeriesPoint(i, new double[] { dataList[i].sensorFront });
-                back = new DevExpress.XtraCharts.SeriesPoint(i, new double[] { dataList[i].sensorBack });
+                frontSensor = new DevExpress.XtraCharts.SeriesPoint(i, new double[] { dataList[i].sensorFront });
+                backSensor = new DevExpress.XtraCharts.SeriesPoint(i, new double[] { dataList[i].sensorBack });
 
                 sensorsLeftGraph.Series[0].Points.Add(frontLeft);
                 sensorsLeftGraph.Series[1].Points.Add(frontRight);
@@ -316,9 +338,9 @@ namespace LaptopV2
                 sensorsRightGraph.Series[0].Points.Add(backLeft);
                 sensorsRightGraph.Series[1].Points.Add(backRight);
 
-                sensorsFrontBackGraph.Series[0].Points.Add(front);
-                sensorsFrontBackGraph.Series[1].Points.Add(back);
-            }            
+                sensorsFrontBackGraph.Series[0].Points.Add(frontSensor);
+                sensorsFrontBackGraph.Series[1].Points.Add(backSensor);
+            }
         }
 
         void drawReflexsensor()
@@ -332,8 +354,6 @@ namespace LaptopV2
             reflexSensor.Show();
             reflexSensor.Location = new Point(labelLocationX, labelLocationY);
 
-            Graphics g = this.CreateGraphics();
-
             string reflexmoduleDraw;
 
             if (dataList.Count != 0)
@@ -343,11 +363,12 @@ namespace LaptopV2
             else
             {
                 reflexmoduleDraw = GetIntBinaryString(0);
-            }            
+            }
 
             for (int i = 0; i < 11; i++)
             {
-                if(reflexmoduleDraw[i] == '1'){
+                if (reflexmoduleDraw[i] == '1')
+                {
                     g.FillEllipse(new SolidBrush(Color.Red), startLocationX + size * i, startLocationY, size, size);
                 }
                 else
@@ -357,9 +378,62 @@ namespace LaptopV2
             }
         }
 
+        void drawRobot()
+        {
+            int robotPosX = 150;
+            int robotPosY = 350;
+            int robotWidth = 75;
+            int robotHeight = 75;
+
+            Pen robotPen = new Pen(Color.Black, 5);
+
+            // Draw the robot itself
+            g.DrawLine(robotPen, robotPosX, robotPosY, robotPosX, robotPosY + robotHeight);
+            g.DrawLine(robotPen, robotPosX + robotWidth, robotPosY, robotPosX + robotWidth, robotPosY + robotHeight);
+            g.DrawLine(robotPen, robotPosX-2, robotPosY, robotPosX + robotWidth + 3, robotPosY);
+            g.DrawLine(robotPen, robotPosX-2, robotPosY + robotHeight, robotPosX + robotWidth + 3, robotPosY + robotHeight);
+
+            if (dataList.Count != 0)
+            {
+                // For drawing the front right sensor value
+                int rightStartX = robotPosX + robotWidth + 3;
+                int frontRightEndX = robotPosX + robotWidth + 80; //(int)dataList[0].sensorFrontRight;
+                int frontRightY = robotPosY + 20;
+
+                // For drawing the back right sensor value                
+                int backRightEndX = robotPosX + robotWidth + 40; //(int)dataList[0].sensorBackRight;
+                int backRightY = robotPosY + robotHeight - 10;
+
+                // For drawing the front left sensor value
+                int leftStartX = 0;
+                int frontLeftEndX = 0;
+                int frontLeftY = 0;
+
+                // For drawing the back left sensor value
+                int backLeftEndX = 0;
+                int backLeftY = 0;
+
+                // Draw front right sensor
+                g.DrawLine(new Pen(Color.Red, 2), rightStartX, frontRightY, frontRightEndX, frontRightY);
+                // Draw back right sensor
+                g.DrawLine(new Pen(Color.Red, 2), rightStartX, backRightY, backRightEndX, backRightY);
+
+                // Draw front left sensor
+                g.DrawLine(new Pen(Color.Red, 2), leftStartX, frontLeftY, frontLeftEndX, frontLeftY);                
+                // Draw back left sensor
+                g.DrawLine(new Pen(Color.Red, 2), leftStartX, backLeftY, backLeftEndX, backLeftY);
+
+
+                // Draw right wall
+                g.DrawLine(new Pen(Color.Black, 2), frontRightEndX, frontRightY, backRightEndX, backRightY);
+                // Draw left wall
+                g.DrawLine(new Pen(Color.Black, 2), frontLeftEndX, frontLeftY, backLeftEndX, backLeftY);
+            }
+        }
+
         private void disconnectButton_Click(object sender, EventArgs e)
-        {            
-            disconnect();                  
+        {
+            disconnect();
         }
 
         private void connectButton_Click(object sender, EventArgs e)
@@ -374,13 +448,25 @@ namespace LaptopV2
             readBluetooth();
             checkIfListFull();
 
+            //drawRobot();
             drawReflexsensor();
-            
+
             if (dataList.Count != 0)
             {
+                clearGraphs();
                 updateGraphs();
                 updateLabels();
             }
-        }                                 
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            useBuffer = false;
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            useBuffer = true;
+        }
     }
 }
