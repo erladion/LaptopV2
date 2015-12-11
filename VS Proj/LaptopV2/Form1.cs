@@ -55,6 +55,8 @@ namespace LaptopV2
         string comPort;
         bool connected = false;
 
+        bool graphDirection = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -152,11 +154,7 @@ namespace LaptopV2
         private void readBluetooth()
         {
             if (bluetooth != null && bluetooth.IsOpen)
-            {
-                if (!useBuffer)
-                {
-                    bluetooth.DiscardInBuffer();
-                }
+            {                
                 int bytes = bluetooth.BytesToRead;
                 if (bytes > 0)
                 {
@@ -172,6 +170,11 @@ namespace LaptopV2
                     }
                     catch (Exception e) { }
 
+                }
+
+                if (!useBuffer)
+                {
+                    bluetooth.DiscardInBuffer();
                 }
             }
         }
@@ -303,6 +306,10 @@ namespace LaptopV2
                 currentCommand.Hide();
             }
 
+            reflexSensorValue.Text = dataList[0].reflexmodule.ToString();
+
+            gyroValue.Text = dataList[0].gyro.ToString();
+
             front.Text = dataList[0].sensorFront.ToString();
             back.Text = dataList[0].sensorBack.ToString();
             leftBack.Text = dataList[0].sensorFrontLeft.ToString();
@@ -324,6 +331,28 @@ namespace LaptopV2
         void updateGraphs()
         {
             for (int i = 0; i < dataList.Count; i++)
+            {
+                frontLeft = new DevExpress.XtraCharts.SeriesPoint(i, new double[] { dataList[i].sensorFrontLeft });
+                frontRight = new DevExpress.XtraCharts.SeriesPoint(i, new double[] { dataList[i].sensorFrontRight });
+                backLeft = new DevExpress.XtraCharts.SeriesPoint(i, new double[] { dataList[i].sensorBackLeft });
+                backRight = new DevExpress.XtraCharts.SeriesPoint(i, new double[] { dataList[i].sensorBackRight });
+                frontSensor = new DevExpress.XtraCharts.SeriesPoint(i, new double[] { dataList[i].sensorFront });
+                backSensor = new DevExpress.XtraCharts.SeriesPoint(i, new double[] { dataList[i].sensorBack });
+
+                sensorsLeftGraph.Series[0].Points.Add(frontLeft);
+                sensorsLeftGraph.Series[1].Points.Add(frontRight);
+
+                sensorsRightGraph.Series[0].Points.Add(backLeft);
+                sensorsRightGraph.Series[1].Points.Add(backRight);
+
+                sensorsFrontBackGraph.Series[0].Points.Add(frontSensor);
+                sensorsFrontBackGraph.Series[1].Points.Add(backSensor);
+            }
+        }
+
+        void updateGraphsOtherDirection()
+        {
+            for (int i = dataList.Count; i > 0; i--)
             {
                 frontLeft = new DevExpress.XtraCharts.SeriesPoint(i, new double[] { dataList[i].sensorFrontLeft });
                 frontRight = new DevExpress.XtraCharts.SeriesPoint(i, new double[] { dataList[i].sensorFrontRight });
@@ -393,17 +422,17 @@ namespace LaptopV2
             g.DrawLine(robotPen, robotPosX-2, robotPosY, robotPosX + robotWidth + 3, robotPosY);
             g.DrawLine(robotPen, robotPosX-2, robotPosY + robotHeight, robotPosX + robotWidth + 3, robotPosY + robotHeight);
 
-            if (dataList.Count != 0)
-            {
+            //if (dataList.Count != 0)
+            //{
                 // For drawing the front right sensor value
                 int rightStartX = robotPosX + robotWidth + 3;
-                int frontRightEndX = robotPosX + robotWidth + 80; //(int)dataList[0].sensorFrontRight;
+                int frontRightEndX = robotPosX + robotWidth + 50; // (int)dataList[0].sensorFrontRight;
                 int frontRightY = robotPosY + 20;
 
                 // For drawing the back right sensor value                
-                int backRightEndX = robotPosX + robotWidth + 40; //(int)dataList[0].sensorBackRight;
+                int backRightEndX = robotPosX + robotWidth + 40; // (int)dataList[0].sensorBackRight;
                 int backRightY = robotPosY + robotHeight - 10;
-
+                
                 // For drawing the front left sensor value
                 int leftStartX = 0;
                 int frontLeftEndX = 0;
@@ -412,6 +441,9 @@ namespace LaptopV2
                 // For drawing the back left sensor value
                 int backLeftEndX = 0;
                 int backLeftY = 0;
+
+                int rightKValue = ((robotPosY + robotHeight) - robotPosY) / (frontRightEndX - backRightEndX);
+                //int leftKValue = ((robotPosY + robotHeight) - robotPosY) / (frontLeftEndX - backLeftEndX);
 
                 // Draw front right sensor
                 g.DrawLine(new Pen(Color.Red, 2), rightStartX, frontRightY, frontRightEndX, frontRightY);
@@ -428,7 +460,9 @@ namespace LaptopV2
                 g.DrawLine(new Pen(Color.Black, 2), frontRightEndX, frontRightY, backRightEndX, backRightY);
                 // Draw left wall
                 g.DrawLine(new Pen(Color.Black, 2), frontLeftEndX, frontLeftY, backLeftEndX, backLeftY);
-            }
+
+                g.DrawLine(new Pen(Color.Black, 2), frontRightEndX, frontRightY, frontRightEndX + rightKValue, frontRightY + rightKValue);
+            //}
         }
 
         private void disconnectButton_Click(object sender, EventArgs e)
@@ -454,7 +488,14 @@ namespace LaptopV2
             if (dataList.Count != 0)
             {
                 clearGraphs();
-                updateGraphs();
+                if (graphDirection)
+                {
+                    updateGraphs();
+                }
+                else
+                {
+                    updateGraphsOtherDirection();
+                }
                 updateLabels();
             }
         }
@@ -467,6 +508,16 @@ namespace LaptopV2
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             useBuffer = true;
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            graphDirection = true;
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            graphDirection = false;
         }
     }
 }

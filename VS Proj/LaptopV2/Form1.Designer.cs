@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraCharts.XYDiagram xyDiagram7 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series13 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView19 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series14 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView20 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView21 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.XYDiagram xyDiagram8 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series15 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView22 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series16 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView23 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView24 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.XYDiagram xyDiagram9 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series17 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView25 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.Series series18 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView26 = new DevExpress.XtraCharts.SplineSeriesView();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView27 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram10 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series19 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView28 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series20 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView29 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView30 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram11 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series21 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView31 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series22 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView32 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView33 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram12 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series23 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView34 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.Series series24 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView35 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView36 = new DevExpress.XtraCharts.SplineSeriesView();
             this.connectButton = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.comBox = new DevExpress.XtraEditors.TextEdit();
@@ -82,6 +82,11 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.reflexSensorValue = new DevExpress.XtraEditors.LabelControl();
+            this.gyroLabel = new DevExpress.XtraEditors.LabelControl();
+            this.gyroValue = new DevExpress.XtraEditors.LabelControl();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.comBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.speedBar)).BeginInit();
@@ -89,26 +94,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.turnBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.turnBar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensorsLeftGraph)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView30)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensorsRightGraph)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView23)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView33)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensorsFrontBackGraph)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView25)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView26)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView27)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView34)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView35)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView36)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
@@ -195,21 +200,21 @@
             // 
             this.sensorsLeftGraph.AppearanceNameSerializable = "In A Fog";
             this.sensorsLeftGraph.BackColor = System.Drawing.Color.DimGray;
-            xyDiagram7.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram7.AxisY.VisibleInPanesSerializable = "-1";
-            this.sensorsLeftGraph.Diagram = xyDiagram7;
+            xyDiagram10.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram10.AxisY.VisibleInPanesSerializable = "-1";
+            this.sensorsLeftGraph.Diagram = xyDiagram10;
             this.sensorsLeftGraph.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.sensorsLeftGraph.Location = new System.Drawing.Point(125, 1);
+            this.sensorsLeftGraph.Location = new System.Drawing.Point(124, 6);
             this.sensorsLeftGraph.Name = "sensorsLeftGraph";
             this.sensorsLeftGraph.PaletteName = "Black and White";
-            series13.Name = "Series 1";
-            series13.View = splineSeriesView19;
-            series14.Name = "Series 2";
-            series14.View = splineSeriesView20;
+            series19.Name = "Series 1";
+            series19.View = splineSeriesView28;
+            series20.Name = "Series 2";
+            series20.View = splineSeriesView29;
             this.sensorsLeftGraph.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series13,
-        series14};
-            this.sensorsLeftGraph.SeriesTemplate.View = splineSeriesView21;
+        series19,
+        series20};
+            this.sensorsLeftGraph.SeriesTemplate.View = splineSeriesView30;
             this.sensorsLeftGraph.Size = new System.Drawing.Size(500, 175);
             this.sensorsLeftGraph.TabIndex = 10;
             // 
@@ -217,21 +222,21 @@
             // 
             this.sensorsRightGraph.AppearanceNameSerializable = "In A Fog";
             this.sensorsRightGraph.BackColor = System.Drawing.Color.DimGray;
-            xyDiagram8.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram8.AxisY.VisibleInPanesSerializable = "-1";
-            this.sensorsRightGraph.Diagram = xyDiagram8;
+            xyDiagram11.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram11.AxisY.VisibleInPanesSerializable = "-1";
+            this.sensorsRightGraph.Diagram = xyDiagram11;
             this.sensorsRightGraph.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.sensorsRightGraph.Location = new System.Drawing.Point(125, 179);
             this.sensorsRightGraph.Name = "sensorsRightGraph";
             this.sensorsRightGraph.PaletteName = "Black and White";
-            series15.Name = "Series 1";
-            series15.View = splineSeriesView22;
-            series16.Name = "Series 2";
-            series16.View = splineSeriesView23;
+            series21.Name = "Series 1";
+            series21.View = splineSeriesView31;
+            series22.Name = "Series 2";
+            series22.View = splineSeriesView32;
             this.sensorsRightGraph.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series15,
-        series16};
-            this.sensorsRightGraph.SeriesTemplate.View = splineSeriesView24;
+        series21,
+        series22};
+            this.sensorsRightGraph.SeriesTemplate.View = splineSeriesView33;
             this.sensorsRightGraph.Size = new System.Drawing.Size(500, 175);
             this.sensorsRightGraph.TabIndex = 11;
             // 
@@ -239,21 +244,21 @@
             // 
             this.sensorsFrontBackGraph.AppearanceNameSerializable = "In A Fog";
             this.sensorsFrontBackGraph.BackColor = System.Drawing.Color.DimGray;
-            xyDiagram9.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram9.AxisY.VisibleInPanesSerializable = "-1";
-            this.sensorsFrontBackGraph.Diagram = xyDiagram9;
+            xyDiagram12.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram12.AxisY.VisibleInPanesSerializable = "-1";
+            this.sensorsFrontBackGraph.Diagram = xyDiagram12;
             this.sensorsFrontBackGraph.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.sensorsFrontBackGraph.Location = new System.Drawing.Point(125, 359);
             this.sensorsFrontBackGraph.Name = "sensorsFrontBackGraph";
             this.sensorsFrontBackGraph.PaletteName = "Black and White";
-            series17.Name = "Series 1";
-            series17.View = splineSeriesView25;
-            series18.Name = "Series 2";
-            series18.View = splineSeriesView26;
+            series23.Name = "Series 1";
+            series23.View = splineSeriesView34;
+            series24.Name = "Series 2";
+            series24.View = splineSeriesView35;
             this.sensorsFrontBackGraph.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series17,
-        series18};
-            this.sensorsFrontBackGraph.SeriesTemplate.View = splineSeriesView27;
+        series23,
+        series24};
+            this.sensorsFrontBackGraph.SeriesTemplate.View = splineSeriesView36;
             this.sensorsFrontBackGraph.Size = new System.Drawing.Size(500, 175);
             this.sensorsFrontBackGraph.TabIndex = 12;
             // 
@@ -462,11 +467,58 @@
             this.simpleButton2.Text = "No Buffer";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
+            // reflexSensorValue
+            // 
+            this.reflexSensorValue.Location = new System.Drawing.Point(211, 134);
+            this.reflexSensorValue.Name = "reflexSensorValue";
+            this.reflexSensorValue.Size = new System.Drawing.Size(63, 13);
+            this.reflexSensorValue.TabIndex = 36;
+            this.reflexSensorValue.Text = "labelControl1";
+            // 
+            // gyroLabel
+            // 
+            this.gyroLabel.Location = new System.Drawing.Point(12, 253);
+            this.gyroLabel.Name = "gyroLabel";
+            this.gyroLabel.Size = new System.Drawing.Size(27, 13);
+            this.gyroLabel.TabIndex = 37;
+            this.gyroLabel.Text = "Gyro:";
+            // 
+            // gyroValue
+            // 
+            this.gyroValue.Location = new System.Drawing.Point(12, 272);
+            this.gyroValue.Name = "gyroValue";
+            this.gyroValue.Size = new System.Drawing.Size(48, 13);
+            this.gyroValue.TabIndex = 38;
+            this.gyroValue.Text = "gyroValue";
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Location = new System.Drawing.Point(137, 514);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(58, 23);
+            this.simpleButton3.TabIndex = 39;
+            this.simpleButton3.Text = "Graph Left";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
+            // 
+            // simpleButton4
+            // 
+            this.simpleButton4.Location = new System.Drawing.Point(201, 514);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.Size = new System.Drawing.Size(73, 23);
+            this.simpleButton4.TabIndex = 40;
+            this.simpleButton4.Text = "Graph Right";
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(943, 561);
+            this.Controls.Add(this.simpleButton4);
+            this.Controls.Add(this.simpleButton3);
+            this.Controls.Add(this.gyroValue);
+            this.Controls.Add(this.gyroLabel);
+            this.Controls.Add(this.reflexSensorValue);
             this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.panelControl1);
@@ -496,26 +548,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.speedBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.turnBar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.turnBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView30)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensorsLeftGraph)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView23)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView33)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensorsRightGraph)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView25)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView26)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView27)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView34)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView35)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView36)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sensorsFrontBackGraph)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -562,6 +614,11 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.LabelControl reflexSensorValue;
+        private DevExpress.XtraEditors.LabelControl gyroLabel;
+        private DevExpress.XtraEditors.LabelControl gyroValue;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.SimpleButton simpleButton4;
 
     }
 }
