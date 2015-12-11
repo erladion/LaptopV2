@@ -193,7 +193,6 @@ namespace LaptopV2
             }
         }
 
-
         /*
          * Converts a number to a binary number represented in a string
          * 
@@ -244,41 +243,41 @@ namespace LaptopV2
             {
                 //readBluetooth();                
                 if (Keyboard.IsKeyDown(Key.Left) && Keyboard.IsKeyDown(Key.Right))
-                    command = Commands.Forwards;
+                    changeCommand(Commands.Forwards);
                 else if (Keyboard.IsKeyDown(Key.Left))
-                    command = Commands.LeftTurn;
+                    changeCommand(Commands.LeftTurn);
                 else if (Keyboard.IsKeyDown(Key.Right))
-                    command = Commands.RightTurn;
+                    changeCommand(Commands.RightTurn);
                 else if (Keyboard.IsKeyDown(Key.Down))
-                    command = Commands.None;
+                    changeCommand(Commands.None);
                 else
-                    command = Commands.Forwards;
+                    changeCommand(Commands.Forwards);
 
             }
             else if (Keyboard.IsKeyDown(Key.Left))
             {
                 if (Keyboard.IsKeyDown(Key.Right))
-                    command = Commands.None;
+                    changeCommand(Commands.None);
                 else if (Keyboard.IsKeyDown(Key.Down))
-                    command = Commands.LeftRot;
+                    changeCommand(Commands.LeftRot);
                 else
-                    command = Commands.LeftRot;
+                    changeCommand(Commands.LeftRot);
 
             }
             else if (Keyboard.IsKeyDown(Key.Right))
             {
                 if (Keyboard.IsKeyDown(Key.Down))
-                    command = Commands.RightRot;
+                    changeCommand(Commands.RightRot);
                 else
-                    command = Commands.RightRot;
+                    changeCommand(Commands.RightRot);
 
             }
             else if (Keyboard.IsKeyDown(Key.Down))
             {
-                command = Commands.Backwards;
+                changeCommand(Commands.Backwards);
             }
             else
-                command = Commands.None;
+                changeCommand(Commands.None);
             currentCommand.Text = command.ToString();
         }
 
@@ -352,7 +351,7 @@ namespace LaptopV2
 
         void updateGraphsOtherDirection()
         {
-            for (int i = dataList.Count; i > 0; i--)
+            for (int i = dataList.Count-1; i >= 0; i--)
             {
                 frontLeft = new DevExpress.XtraCharts.SeriesPoint(i, new double[] { dataList[i].sensorFrontLeft });
                 frontRight = new DevExpress.XtraCharts.SeriesPoint(i, new double[] { dataList[i].sensorFrontRight });
