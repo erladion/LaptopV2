@@ -162,7 +162,7 @@ namespace LaptopV2
                     try
                     {
                         string data = bluetooth.ReadLine();
-                        if (data.Length >= 12)
+                        if (data.Length >= 16)
                         {
                             Sensordata sensor = new Sensordata(data);
                             dataList.Insert(0, sensor);
