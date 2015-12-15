@@ -36,6 +36,8 @@ namespace LaptopV2
         const int speedFreq = 1;
         const int turnFreq = 1;
 
+        int dataListSize = 10;
+
         SerialPort bluetooth;
         List<Sensordata> dataList;
 
@@ -164,30 +166,30 @@ namespace LaptopV2
                         string data = bluetooth.ReadLine();
                         if (data.Length >= 16)
                         {
+                            if (!useBuffer)
+                            {
+                                bluetooth.DiscardInBuffer();
+                            }
                             Sensordata sensor = new Sensordata(data);
                             dataList.Insert(0, sensor);
                         }
                     }
-                    catch (Exception e) { }
-
-                }
-
-                if (!useBuffer)
-                {
-                    bluetooth.DiscardInBuffer();
-                }
+                    catch (Exception e) 
+                    { 
+                    }
+                }                
             }
         }
 
         void checkIfListFull()
         {
-            if (dataList.Count > 10)
+            if (dataList.Count > dataListSize)
             {
                 for (int i = 0; i < dataList.Count; i++)
                 {
-                    if (i >= 10)
+                    if (i >= dataListSize)
                     {
-                        dataList.RemoveAt(10);
+                        dataList.RemoveAt(dataListSize);
                     }
                 }
             }
@@ -441,7 +443,7 @@ namespace LaptopV2
                 int backLeftEndX = 0;
                 int backLeftY = 0;
 
-                int rightKValue = ((robotPosY + robotHeight) - robotPosY) / (frontRightEndX - backRightEndX);
+                int rightKValue = 1/ (((robotPosY + robotHeight) - robotPosY) / (frontRightEndX - backRightEndX));
                 //int leftKValue = ((robotPosY + robotHeight) - robotPosY) / (frontLeftEndX - backLeftEndX);
 
                 // Draw front right sensor
@@ -497,7 +499,7 @@ namespace LaptopV2
                 }
                 updateLabels();
             }
-        }
+        }        
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
@@ -517,6 +519,26 @@ namespace LaptopV2
         private void simpleButton4_Click(object sender, EventArgs e)
         {
             graphDirection = false;
+        }
+
+        private void calibrateReflexButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void readTen_Click(object sender, EventArgs e)
+        {
+            dataListSize = 10;
+        }
+
+        private void readTwenty_Click(object sender, EventArgs e)
+        {
+            dataListSize = 20;
+        }
+
+        private void readThirty_Click(object sender, EventArgs e)
+        {
+            dataListSize = 30;
         }
     }
 }
