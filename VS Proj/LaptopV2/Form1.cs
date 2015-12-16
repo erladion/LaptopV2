@@ -22,7 +22,8 @@ namespace LaptopV2
         LeftRot,
         RightRot,
         LeftTurn,
-        RightTurn
+        RightTurn,
+        Calibratereflex
     }
 
     public partial class Form1 : DevExpress.XtraEditors.XtraForm
@@ -85,6 +86,7 @@ namespace LaptopV2
             leftFront.Text = "N/A";
             rightBack.Text = "N/A";
             rightFront.Text = "N/A";
+            gyroValue.Text = "N/A";
 
             modeLabel.Text = "Autonomous";
 
@@ -499,6 +501,7 @@ namespace LaptopV2
                 }
                 updateLabels();
             }
+            labelControl1.Text = currentCommand.Text;
         }        
 
         private void simpleButton2_Click(object sender, EventArgs e)
@@ -519,12 +522,7 @@ namespace LaptopV2
         private void simpleButton4_Click(object sender, EventArgs e)
         {
             graphDirection = false;
-        }
-
-        private void calibrateReflexButton_Click(object sender, EventArgs e)
-        {
-
-        }
+        }        
 
         private void readTen_Click(object sender, EventArgs e)
         {
@@ -540,5 +538,10 @@ namespace LaptopV2
         {
             dataListSize = 30;
         }
+
+        private void calibrateReflexButton_Click(object sender, EventArgs e)
+        {
+            changeCommand(Commands.Calibratereflex);
+        }        
     }
 }

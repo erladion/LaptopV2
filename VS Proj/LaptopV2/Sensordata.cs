@@ -29,11 +29,11 @@ namespace LaptopV2
             reflexmodule = (data[3] << 8) + data[4];
             gyro = (data[5] << 8) + data[6];
             sensorFront = (data[7] << 8) + data[8];
-            sensorBack = (data[9] << 8) + data[10];
-            sensorFrontRight = data[11];
-            sensorBackRight = data[12];
-            sensorFrontLeft = data[13];
-            sensorBackLeft = data[14];
+            sensorBack = (data[9] << 8) + data[10];            
+            sensorFrontLeft = data[11];
+            sensorBackLeft = data[12];
+            sensorFrontRight = data[13];
+            sensorBackRight = data[14];
         }
     }
 }
