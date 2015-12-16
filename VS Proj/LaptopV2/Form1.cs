@@ -155,6 +155,14 @@ namespace LaptopV2
             }
         }
 
+        private void sendBluetoothv2(char a)
+        {
+            if (bluetooth != null && bluetooth.IsOpen)
+            {
+                bluetooth.Write(a.ToString() + a + a);
+            }
+        }
+
         private void readBluetooth()
         {
             if (bluetooth != null && bluetooth.IsOpen)
@@ -541,7 +549,8 @@ namespace LaptopV2
 
         private void calibrateReflexButton_Click(object sender, EventArgs e)
         {
-            changeCommand(Commands.Calibratereflex);
+            sendBluetoothv2('7');
+            //changeCommand(Commands.Calibratereflex);
         }        
     }
 }
