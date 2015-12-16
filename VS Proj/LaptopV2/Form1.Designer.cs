@@ -91,7 +91,6 @@
             this.readTen = new DevExpress.XtraEditors.SimpleButton();
             this.readTwenty = new DevExpress.XtraEditors.SimpleButton();
             this.readThirty = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.comBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.speedBar)).BeginInit();
@@ -525,7 +524,9 @@
             this.calibrateReflexButton.Size = new System.Drawing.Size(106, 23);
             this.calibrateReflexButton.TabIndex = 41;
             this.calibrateReflexButton.Text = "Calibrate reflex";
-            this.calibrateReflexButton.Click += new System.EventHandler(this.calibrateReflexButton_Click);
+            this.calibrateReflexButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.calibrateReflexButton_MouseDown);
+            this.calibrateReflexButton.MouseLeave += new System.EventHandler(this.calibrateReflexButton_MouseLeave);
+            this.calibrateReflexButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.calibrateReflexButton_MouseUp);
             // 
             // readTen
             // 
@@ -554,20 +555,11 @@
             this.readThirty.Text = "30";
             this.readThirty.Click += new System.EventHandler(this.readThirty_Click);
             // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(151, 234);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(63, 13);
-            this.labelControl1.TabIndex = 45;
-            this.labelControl1.Text = "labelControl1";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(943, 561);
-            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.readThirty);
             this.Controls.Add(this.readTwenty);
             this.Controls.Add(this.readTen);
@@ -681,7 +673,6 @@
         private DevExpress.XtraEditors.SimpleButton readTen;
         private DevExpress.XtraEditors.SimpleButton readTwenty;
         private DevExpress.XtraEditors.SimpleButton readThirty;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
 
     }
 }

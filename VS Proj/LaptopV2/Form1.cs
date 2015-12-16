@@ -509,7 +509,6 @@ namespace LaptopV2
                 }
                 updateLabels();
             }
-            labelControl1.Text = currentCommand.Text;
         }        
 
         private void simpleButton2_Click(object sender, EventArgs e)
@@ -547,10 +546,19 @@ namespace LaptopV2
             dataListSize = 30;
         }
 
-        private void calibrateReflexButton_Click(object sender, EventArgs e)
+        private void calibrateReflexButton_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             sendBluetoothv2('7');
-            //changeCommand(Commands.Calibratereflex);
+        }
+
+        private void calibrateReflexButton_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            sendBluetoothv2('0');
+        }
+
+        private void calibrateReflexButton_MouseLeave(object sender, EventArgs e)
+        {
+            sendBluetoothv2('0');
         }        
     }
 }
